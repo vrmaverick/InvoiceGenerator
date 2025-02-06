@@ -47,10 +47,13 @@ def generate_html(name,cost,p,d):
     )
 
     # Save the rendered HTML to a file
-    with open(word+'.html', 'w') as f:
-        f.write(rendered_html)
-
-    convert('http://127.0.0.1:5500/'+word+'.html',name)
+    try :
+        with open(word+'.html', 'w') as f:
+            f.write(rendered_html)
+    
+        convert('http://127.0.0.1:5500/'+word+'.html',name)
+    except:
+        print("Error triggred due to Web-Driver, HTML template must be created in directory but it will not automatically open")
 
 
 # generate_html("Vedant ",100,'A','G')
